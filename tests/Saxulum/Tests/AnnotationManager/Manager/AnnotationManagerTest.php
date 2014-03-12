@@ -7,6 +7,7 @@ use Saxulum\AnnotationManager\Helper\ClassInfo;
 use Saxulum\AnnotationManager\Manager\AnnotationManager;
 use Saxulum\Tests\AnnotationManager\Classes1\TestClass1;
 use Saxulum\Tests\AnnotationManager\Classes1\TestClass2;
+use Symfony\Component\Finder\SplFileInfo;
 
 class AnnotationManagerTest extends \PHPUnit_Framework_TestCase
 {
@@ -73,6 +74,37 @@ class AnnotationManagerTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('Saxulum\\AnnotationManager\\Helper\\ClassInfo', $classInfo);
 
         $this->checkTestClass1($classInfo);
+    }
+
+    public function testGetReflectionClasses()
+    {
+        $reflectionClasses = AnnotationManager::getReflectionClasses(dirname(__DIR__) . '/Classes1');
+
+        $this->assertCount(2, $reflectionClasses);
+        $this->assertInstanceOf('\ReflectionClass', $reflectionClasses[0]);
+        $this->assertInstanceOf('\ReflectionClass', $reflectionClasses[1]);
+        $this->assertEquals('Saxulum\Tests\AnnotationManager\Classes1\TestClass1', $reflectionClasses[0]->getName());
+        $this->assertEquals('Saxulum\Tests\AnnotationManager\Classes1\TestClass2', $reflectionClasses[1]->getName());
+
+        $reflectionClasses = AnnotationManager::getReflectionClasses(dirname(__DIR__) . '/Classes2');
+
+        $this->assertCount(1, $reflectionClasses);
+        $this->assertInstanceOf('\ReflectionClass', $reflectionClasses[0]);
+        $this->assertEquals('Saxulum\Tests\AnnotationManager\Classes2\TestClass3', $reflectionClasses[0]->getName());
+    }
+
+    public function testFindClassesWithinAFile()
+    {
+        $classes = AnnotationManager::findClassesWithinAFile(
+            new SplFileInfo(
+                dirname(__DIR__) . '/Classes1/TestClass1.php',
+                '',
+                'TestClass1.php'
+            )
+        );
+
+        $this->assertCount(1, $classes);
+        $this->assertEquals('Saxulum\Tests\AnnotationManager\Classes1\TestClass1', $classes[0]);
     }
 
     /**

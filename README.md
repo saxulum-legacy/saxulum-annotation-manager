@@ -47,7 +47,7 @@ $annotationManager = new AnnotationManager($annotationReader);
 ```
 
 ### ClassInfo based on paths
-This will search foreach instantiable class within the given paths
+This will search each instantiable class within the given paths
 and return em as an array of `Saxulum\AnnotationManager\Helper\ClassInfo`
 instances.
 
@@ -59,7 +59,7 @@ $classInfos = $annotationManager->buildClassInfosBasedOnPaths(array(
 ```
 
 ### ClassInfo based on path
-This will search foreach instantiable class within the given path
+This will search each instantiable class within the given path
 and return em as an array of `Saxulum\AnnotationManager\Helper\ClassInfo`
 instances.
 
@@ -87,6 +87,28 @@ based on the given ReflectionClass.
 ```{.php}
 $classInfo = $annotationManager->buildClassInfo(
     new \ReflectionClass(new TestClass1())
+);
+```
+
+### ReflectionClasses based on path
+This will search each instantiable class within the given path
+and return em as an array of `\ReflectionClass` instances.
+
+```{.php}
+$reflectionClasses = AnnotationManager::getReflectionClasses(dirname(__DIR__) . '/Classes1');
+```
+
+### Classes based on SplFileInfo
+This will search each class within the given file and return em
+as an array of class names.
+
+```{.php}
+$classes = AnnotationManager::findClassesWithinAFile(
+    new SplFileInfo(
+        dirname(__DIR__) . '/Classes1/TestClass1.php',
+        '',
+        'TestClass1.php'
+    )
 );
 ```
 
