@@ -15,8 +15,8 @@ abstract class AbstractInfo
     protected $annotations;
 
     /**
-     * @param $name
-     * @param array $annotations
+     * @param string $name
+     * @param array  $annotations
      */
     public function __construct($name, array $annotations = array())
     {

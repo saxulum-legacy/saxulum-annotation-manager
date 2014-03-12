@@ -15,10 +15,10 @@ class ClassInfo extends AbstractInfo
     protected $methodInfos;
 
     /**
-     * @param string $name
-     * @param array  $annotations
-     * @param array  $propertyInfos
-     * @param array  $methodInfos
+     * @param string         $name
+     * @param array          $annotations
+     * @param PropertyInfo[] $propertyInfos
+     * @param MethodInfo[]   $methodInfos
      */
     public function __construct(
         $name,
