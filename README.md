@@ -6,6 +6,7 @@ saxulum-annotation-manager
 [![Build Status](https://api.travis-ci.org/saxulum/saxulum-annotation-manager.png?branch=master)](https://travis-ci.org/saxulum/saxulum-annotation-manager)
 [![Total Downloads](https://poser.pugx.org/saxulum/saxulum-annotation-manager/downloads.png)](https://packagist.org/packages/saxulum/saxulum-annotation-manager)
 [![Latest Stable Version](https://poser.pugx.org/saxulum/saxulum-annotation-manager/v/stable.png)](https://packagist.org/packages/saxulum/saxulum-annotation-manager)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/saxulum/saxulum-annotation-manager/badges/quality-score.png?s=f7cf1fffbfd39b9ba6e9337dc3172de39e25b20c)](https://scrutinizer-ci.com/g/saxulum/saxulum-annotation-manager/)
 
 Features
 --------
