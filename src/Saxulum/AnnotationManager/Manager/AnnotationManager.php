@@ -153,7 +153,7 @@ class AnnotationManager
             throw new \InvalidArgumentException('Path is not a directory');
         }
 
-        foreach (Finder::create()->files()->name('*.php')->in($path) as $file) {
+        foreach (Finder::create()->files()->name('*.php')->in($path)->sortByName() as $file) {
             $namespaces = self::findClassesWithinAFile($file);
             foreach ($namespaces as $classNamespace) {
                 $reflectionClass = new \ReflectionClass($classNamespace);

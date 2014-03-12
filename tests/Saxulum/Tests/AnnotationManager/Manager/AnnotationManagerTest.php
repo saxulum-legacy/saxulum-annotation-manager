@@ -27,6 +27,8 @@ class AnnotationManagerTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('Saxulum\\AnnotationManager\\Helper\\ClassInfo', $classInfos[2]);
 
         $this->checkTestClass1($classInfos[0]);
+        $this->checkTestClass2($classInfos[1]);
+        $this->checkTestClass3($classInfos[2]);
     }
 
     public function testBuildClassInfosBasedOnPath()
@@ -43,6 +45,7 @@ class AnnotationManagerTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('Saxulum\\AnnotationManager\\Helper\\ClassInfo', $classInfos[1]);
 
         $this->checkTestClass1($classInfos[0]);
+        $this->checkTestClass2($classInfos[1]);
     }
 
     public function testBuildClassInfos()
@@ -60,6 +63,7 @@ class AnnotationManagerTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('Saxulum\\AnnotationManager\\Helper\\ClassInfo', $classInfos[1]);
 
         $this->checkTestClass1($classInfos[0]);
+        $this->checkTestClass2($classInfos[1]);
     }
 
     public function testBuildClassInfo()
