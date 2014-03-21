@@ -31,7 +31,9 @@ Through [Composer](http://getcomposer.org) as [saxulum/saxulum-annotation-manage
 Add this line after you added the `autoload.php` from composer
 
 ```{.php}
-\Doctrine\Common\Annotations\AnnotationRegistry::registerLoader(array($loader, 'loadClass'));
+\Doctrine\Common\Annotations\AnnotationRegistry::registerLoader(
+    array($loader, 'loadClass')
+);
 ```
 
 Usage
@@ -96,7 +98,9 @@ This will search each instantiable class within the given path
 and return em as an array of `\ReflectionClass` instances.
 
 ```{.php}
-$reflectionClasses = AnnotationManager::getReflectionClasses(dirname(__DIR__) . '/Classes1');
+$reflectionClasses = AnnotationManager::getReflectionClasses(
+    dirname(__DIR__) . '/Classes1'
+);
 ```
 
 ### Classes based on SplFileInfo
